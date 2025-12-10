@@ -20,7 +20,7 @@ Even small amounts of label noise can degrade model generalization and calibrati
 This project uses the Iris dataset as a controlled sandbox for studying these effects systematically, allowing us to isolate sources of error, measure noise propagation, and prototype noise-robust techniques before applying them to larger, real-world datasets.
 
 ```
-## 🧱 Repository Structure
+🧱 Repository Structure
 ├── data/
 │   └── iris.zip
 │
