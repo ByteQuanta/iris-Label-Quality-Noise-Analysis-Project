@@ -1,0 +1,280 @@
+✅ Data successfully loaded and validated.
+Train Shape: (120, 4)
+Test Shape : (30, 4)
+# Features : 4
+
+==============================
+ EXPLORATORY DATA ANALYSIS
+==============================
+
+=== Dataset Overview ===
+Train shape: (120, 4)  | Test shape: (30, 4)
+y_train shape: (120,)  | y_test shape: (30,)
+
+Feature count: 4
+Unique class count (train): 3
+Unique class count (test): 3
+
+=== Null / Missing / Zero Row Check ===
+Train missing values: 0
+Test missing values : 0
+Train zero-sum-like rows: 0
+Test zero-sum-like rows : 0
+
+=== Class Distribution ===
+Train class counts:
+ species
+Iris-setosa        40
+Iris-virginica     40
+Iris-versicolor    40
+Name: count, dtype: int64
+
+Test class counts:
+ species
+Iris-setosa        10
+Iris-virginica     10
+Iris-versicolor    10
+Name: count, dtype: int64
+
+Invalid labels (train): 0
+Invalid labels (test) : 0
+
+=== Feature Integrity Checks ===
+Negative value count (train): 0
+Negative value count (test) : 0
+
+Low-variance feature count: 0
+Low-variance features:
+ Series([], dtype: float64)
+
+=== Zero-Norm Row Detection ===
+Train norm=0 rows: 0
+Test norm=0 rows : 0
+
+=== Summary Statistics ===
+              count      mean       std  min  25%   50%  75%  max
+sepal_length  120.0  5.841667  0.840926  4.3  5.1  5.75  6.4  7.9
+sepal_width   120.0  3.044167  0.445669  2.0  2.8  3.00  3.3  4.4
+petal_length  120.0  3.770833  1.767417  1.1  1.6  4.25  5.1  6.9
+petal_width   120.0  1.204167  0.763825  0.1  0.3  1.30  1.8  2.5
+
+=== Train–Test Feature Mean Comparison ===
+Feature mean differences:
+ petal_length    0.060833
+sepal_width     0.049167
+petal_width     0.027500
+sepal_length    0.008333
+dtype: float64
+
+EDA Completed.
+
+=== Checking Missing Value ===
+X_train missing values: 0
+X_test missing values : 0
+y_train missing values: 0
+y_test missing values : 0
+
+=== Format / Type Control ===
+Train non-numeric columns: []
+Test non-numeric columns : []
+
+=== Inf / -Inf Control ===
+Train inf count: 0
+Test inf count : 0
+Train shape: (120, 4)
+Test shape : (30, 4)
+
+Final cleaned train shape: (120, 9)
+Final cleaned test shape : (30, 9)
+
+New Xtr_clean shape: (120, 4)
+New Xte_clean shape: (30, 4)
+
+=== Duplicate Row Detection ===
+Train duplicates: 3
+Test duplicates : 0
+
+=== Feature-only duplicate check ===
+Train feature duplicates: 5
+Test feature duplicates : 0
+
+=== Iris Near-Duplicate Analysis ===
+Total duplicate collisions: 4
+Group count: 2
+Severity score: 3.999999999991118
+
+Duplicate lineage saved:
+CSV : iris_duplicate_lineage.csv
+JSON: iris_duplicate_lineage.json
+
+Final cleaned X_train shape: (117, 4)
+Final cleaned y_train shape: (117,)
+Removed duplicate row original indices: [34, 37, 142]
+
+=== Correlation Analysis Summary ===
+Original train shape : (117, 4)
+Reduced train shape  : (117, 3)
+Original test shape  : (30, 4)
+Reduced test shape   : (30, 3)
+
+Selected features:
+ ['sepal_length', 'sepal_width', 'petal_width']
+
+FINAL: X_train_corr shape: (117, 3)
+FINAL: X_test_corr shape : (30, 3)
+FINAL: y_train_final shape: (117,)
+Index alignment OK for training set.
+
+Saved final reduced datasets to CSV files: X_train_corr.csv, X_test_corr.csv, y_train_final.csv
+=== Class Distribution Analysis ===
+
+Train activity distribution:
+species
+Iris-versicolor    34.188034
+Iris-virginica     33.333333
+Iris-setosa        32.478632
+Name: proportion, dtype: float64
+
+Test activity distribution:
+species
+Iris-setosa        33.333333
+Iris-virginica     33.333333
+Iris-versicolor    33.333333
+Name: proportion, dtype: float64
+Drift Scores (Mean Difference): {'sepal_length': 0.006245890861275485, 'sepal_width': 0.09435897435897433, 'petal_width': 0.02695156695156694}
+Drift Scores (Mean Difference): {'sepal_length': 0.006245890861275485, 'sepal_width': 0.09435897435897433, 'petal_width': 0.02695156695156694}
+
+Selected Features after Drift & Correlation Analysis: ['sepal_length', 'sepal_width', 'petal_width']
+Number of high-drift features (drift > 1): 0
+High Drift Features:
+X_train_selected shape: (117, 3)
+X_test_selected shape : (30, 3)
+Drift Scores (Mean Difference): {'sepal_length': 0.006245890861275485, 'sepal_width': 0.09435897435897433, 'petal_width': 0.02695156695156694}
+
+==============================
+📊 Mean Drift Score Summary
+==============================
+Total number of features: 3
+Number of high-drift features (drift > 1): 0
+
+High Drift Features (Drift > 1):
+
+Top 10 Features with Highest Drift:
+1. sepal_width: drift=0.0944
+2. petal_width: drift=0.0270
+3. sepal_length: drift=0.0062
+
+==============================
+📉 Drift Distribution (Text Histogram)
+==============================
+sepal_width               | ████████████████████████████████████████ (0.094)
+petal_width               | ███████████ (0.027)
+sepal_length              | ██ (0.006)
+
+==============================
+🔎 Integrating Advanced Drift Metrics (PSI, KS-Drift)
+==============================
+
+Top features by KS Drift:
+               ks_stat       psi  mean_drift
+feature                                     
+sepal_width   0.183761  0.999846    0.094359
+sepal_length  0.106838  0.318397    0.006246
+petal_width   0.103419  0.942367    0.026952
+X_test_selected shape: (30, 3)
+X_train_selected shape: (117, 3)
+Final Feature List: ['sepal_length', 'sepal_width', 'petal_width']
+Train Label Entropy: 1.098393110582232
+Test  Label Entropy: 1.0986122886681096
+
+Top noisy samples (top 20):
+     sample_id  ...  final_noise_score
+72          72  ...           1.000000
+1            1  ...           0.979562
+7            7  ...           0.930328
+80          80  ...           0.925264
+20          20  ...           0.890307
+74          74  ...           0.885888
+39          39  ...           0.835937
+67          67  ...           0.832548
+55          55  ...           0.828163
+12          12  ...           0.774784
+78          78  ...           0.754989
+110        110  ...           0.717700
+63          63  ...           0.694603
+85          85  ...           0.566895
+48          48  ...           0.507094
+41          41  ...           0.468231
+103        103  ...           0.443254
+59          59  ...           0.399319
+28          28  ...           0.381869
+33          33  ...           0.354094
+
+[20 rows x 8 columns]
+
+===== TOP 20 SUSPICIOUS SAMPLES (Unified Diagnostics) =====
+          true_label  cluster  ...  lof_outlier  suspicious_score
+72    Iris-virginica        7  ...          0.0          0.700000
+12   Iris-versicolor        4  ...          1.0          0.687392
+7     Iris-virginica        0  ...          0.0          0.665164
+74    Iris-virginica        1  ...          0.0          0.642944
+39   Iris-versicolor        9  ...          0.0          0.617969
+1     Iris-virginica        4  ...          0.0          0.489781
+33       Iris-setosa        2  ...          1.0          0.477047
+80   Iris-versicolor        7  ...          0.0          0.462632
+20   Iris-versicolor        7  ...          0.0          0.445154
+67   Iris-versicolor        0  ...          0.0          0.416274
+55    Iris-virginica        0  ...          0.0          0.414081
+22    Iris-virginica        6  ...          1.0          0.411674
+9     Iris-virginica        6  ...          1.0          0.393206
+78   Iris-versicolor        9  ...          0.0          0.377495
+110  Iris-versicolor        7  ...          0.0          0.358850
+63   Iris-versicolor        0  ...          0.0          0.347302
+85   Iris-versicolor        4  ...          0.0          0.283447
+48       Iris-setosa        4  ...          0.0          0.253547
+41   Iris-versicolor        1  ...          0.0          0.234116
+103  Iris-versicolor        0  ...          0.0          0.221627
+
+[20 rows x 6 columns]
+
+=== START: FULL BIAS AUDIT (Iris Dataset) ===
+
+Label encoder classes: ['0' '1' '2' 'Iris-setosa' 'Iris-versicolor' 'Iris-virginica']
+Predictions computed. Has predict_proba: True
+Overall Accuracy: 0.9000
+
+Classification report (per class):
+
+              precision    recall  f1-score   support
+
+           3     1.0000    1.0000    1.0000        10
+           4     0.8889    0.8000    0.8421        10
+           5     0.8182    0.9000    0.8571        10
+
+    accuracy                         0.9000        30
+   macro avg     0.9024    0.9000    0.8997        30
+weighted avg     0.9024    0.9000    0.8997        30
+
+Confusion matrix saved -> bias_audit_outputs\confusion_matrix.png
+Per-class accuracy saved -> bias_audit_outputs\per_class_accuracy.png
+Per-class accuracy mean=0.9000, std=0.1000 → risk=HIGH
+Per-class accuracy summary saved -> bias_audit_outputs\per_class_accuracy_summary.png
+
+=== EXECUTIVE SUMMARY ===
+Dataset: Iris Dataset
+Overall accuracy: 0.9000
+Per-class accuracy: mean=0.9000, std=0.1000 -> risk=HIGH
+Top per-class accuracies (class : accuracy):
+    class_label  accuracy
+    Iris-setosa       1.0
+Iris-versicolor       0.8
+ Iris-virginica       0.9
+
+Notes:
+- Demographic bias: Not applicable (no gender/age in dataset).
+- Annotator bias: Not available (no annotator IDs).
+- Feature-level notes (saved): bias_audit_outputs\feature_magnitude_by_true_class.csv
+
+Saved all outputs to folder: bias_audit_outputs
+
+=== END: FULL BIAS AUDIT ===
