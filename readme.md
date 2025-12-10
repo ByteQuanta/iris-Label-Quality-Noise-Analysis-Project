@@ -122,13 +122,13 @@ Final evaluation plots are all saved in the outputs/ directory.
 
 
 ## 💾 Dataset
-This project uses the Human Activity Recognition Using Smartphones dataset.
+This project uses the iris dataset.
 
 📎 Dataset Link: https://archive.ics.uci.edu/dataset/53/iris
 
 📁 The dataset is included locally under:
 
-raw data/human+activity+recognition+using+smartphones/
+raw data/iris.zip/
 
 ⚠️ Important Note
 
